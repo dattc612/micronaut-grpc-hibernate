@@ -1,0 +1,24 @@
+micronaut:
+  server:
+    port: 8082
+  application:
+    name: service2
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+grpc:
+  channels:
+    service1:
+      address: localhost:8091
+      plaintext: true
+  server:
+    enabled: false
+  client:
+    port: 8092
+    plaintext: true
+    max-retry-attempts: 10
+#    ssl:
+#      cert-chain: 'file://path/to/my.cert'
+#      private-key: 'classpath:my.key'

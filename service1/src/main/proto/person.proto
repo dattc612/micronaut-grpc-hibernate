@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.dongen.codegen";
+option java_outer_classname = "Artist";
+option objc_class_prefix = "PER";
+
+service ArtistService{
+  rpc GetPerson(ArtistRequest) returns (ArtistResponse);
+  rpc GetAllPerson(Empty) returns ( stream ArtistResponse);
+}
+
+message Empty{}
+message ArtistRequest{
+  int32 id = 1;
+}
+message ArtistResponse{
+  int32 id = 1;
+  string name = 2;
+  int32  age = 3;
+  int32 gender = 4;
+}
